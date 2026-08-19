@@ -1,0 +1,11 @@
+.main{
+    background-color: lightblue;
+}
+.header{
+    background-color: palevioletred;
+    display: block;
+}
+.entry{
+    background-color: black;
+    font-display: rgb(218, 24, 24) ;
+}

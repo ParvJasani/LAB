@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>use of required</title>
+</head>
+<body align="center">
+    <h1>USE OF REQUIRED TAG</h1>
+    <table align="center">
+        <form>
+            <tr>
+                <td>
+                    <label for="name">name</label>
+                </td>
+                <td><input type="text" name="name" id="name" required></td>    
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">email</label></td>
+                   <td> <input type="email" name="email" id="email" required></td>
+                
+            </tr > 
+            <tr>
+                <td>
+                    <label for="date">dob</label></td>
+                    <td><input type="date" name="date" id="date" required>
+                    </td>
+            </tr>   
+            <tr>
+                <td><label for="area">text area</label></td>
+                <td><textarea required></textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mo">m number</label></td>
+                    <td><input type="mo" name="mo" id="mo" pattern="[0-9]{10}" required>
+                    </td>
+            </tr>  
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+
+        </form>
+    </table>
+</body>
+</html>

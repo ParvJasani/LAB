@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Vactination Form</title>
+</head>
+<body align="center">
+    <h1 align="center">Covid-19 Vaccine Registration</h1>
+    <table align="center" cellpadding="10">
+        <form action="" method="get">
+            <tr>
+               <td><label for="first name">First Name</label></td>
+               <td><input type="text" name="first name" id="first name" required></td>
+            </tr>
+            <tr>
+               <td><label for="last name">Last name</label></td>
+               <td><input type="text" name="last name" id="last name" required></td>
+            </tr>
+            <tr>
+                <td><label for="aadhar no." >Aadhar no.</label></td>
+                <td><input type="number" name="aadhar no." id="aadhar no." required></td>
+            </tr>
+            <tr>
+                <td><label for="vactination">Vaccine Name</label></td>
+                <td>
+                    <select name="vactination" id="vactination" required>
+                    <option disabled selected>Enter Vaccine Name</option>
+                    <option>V1</option>
+                    <option>V2</option>
+                    <option>V3</option>
+                    <option>V4</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="center">Vaccination Center Name</label></td>
+                <td>
+                    <select name="center" id="center" required>
+                        <option disabled selected>Enter center Name</option>
+                        <option>C1</option>
+                        <option>C2</option>
+                        <option>C3</option>
+                        <option>C4</option>   
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dos">Date of Dose</label></td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td><label for="dose number" >Dose Number</label></td>
+                <td><input type="number" name="dose" id="dose" required></td>
+            </tr>
+            <tr><td></td>
+                <td align="center"><input type="submit" value="Click Here">
+                <input type="reset" value="cancel"></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>

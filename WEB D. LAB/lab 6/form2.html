@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student registration</title>
+</head>
+<body align="center">
+    <table align="center" cellpadding="10">
+                <h1>Student Registration</h1>
+            <form action="" method="get">
+         
+             <tr>
+             <td><label for="Firstname">Firstname</label></td>
+             <td><input type="text" name="Firstname" id="Firstname" required><br></td>
+             <td></td>
+             </tr>       
+             <tr>
+                 <td><label for="last name">Lastname</label></td>
+                 <td><input type="text" name="Lastname" id="Last name" required><br></td>
+             </tr>
+             <tr>
+                 <td><label for="email">Email</label></td>
+                 <td><input type="email" name="email" id="email" required><br></td>
+             </tr>
+             <tr>
+                 <td><label for="mobile">Mobile No.</label></td>
+                 <td><input type="tel" name="mobile" id="mobile" maxlength="10" required><br></td>
+             </tr>
+             <tr>
+                 <td><label for="address">Address</label></td>
+                 <td><textarea name="address" id="address" rows="5" cols="25" required></textarea><br></td>
+             </tr>
+             <tr>
+                 <td><label for="nationality"></label>Nationality</td>
+                 <td><input type="text" name="nationality" id="nationality" required><br></td>
+             </tr>
+             <tr>
+                 <td><label for="dob">Date of Birth</label></td>
+                 <td align="center"><input type="date" name="dob" id="dob" required></td>
+             </tr> 
+             <tr>
+                 <td><label for="gender">Gender</label></td>
+                 <td><input type="radio" name="gender" id="male" value="male" required>Male
+                 <input type="radio" name="gender" id="female" value="female" required>Female</td>          
+             </tr>
+             <tr>
+                 <td><label for="highest degree">Highest Degree</label></td>
+                 <td align="center">
+                 <select name="highest degree" id="highest degree" required>
+                     <option disabled selected>select degree</option>
+                     <option>S.S.C.</option>
+                     <option>H.S.C.</option>
+                     <option>B.TECH</option>
+                     <option>M.TECH</option> 
+                     <option>P.H.D.</option>
+                 </select>
+                 </td>
+             </tr>
+             <tr>
+                 <td><label for="cpi"></label>CPI</td>
+                 <td><input type="tel" name="cpi" id="cpi" required><br></td>
+             </tr>
+             <tr>
+                 <td><label for="univerasity"></label>Univerasity</td>
+                 <td><input type="tel" name="univerasity" id="univerasity" required><br></td>
+             </tr>
+             <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="cancel"> 
+                </td>
+                </tr>
+            </form>
+        </table>
+    </body>
+</html>
