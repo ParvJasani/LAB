@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: HTML & Web Fundamentals - 100 MCQ Question Bank</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --accent: #0284c7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header & Info Bar */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .info-field {
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+            padding-bottom: 4px;
+        }
+
+        /* Toolbar & Controls */
+        .toolbar {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background-color: #64748b;
+        }
+
+        .btn-secondary:hover {
+            background-color: #475569;
+        }
+
+        .btn-accent {
+            background-color: #059669;
+        }
+
+        .btn-accent:hover {
+            background-color: #10b981;
+        }
+
+        .score-display {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary);
+            background: #eff6ff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* Topic Section */
+        .section-title {
+            background: #1e293b;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Question Cards */
+        .q-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+        }
+
+        .q-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .q-num {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            height: fit-content;
+            white-space: nowrap;
+        }
+
+        .q-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            flex: 1;
+        }
+
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-align: left;
+            font-size: 13.5px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .option-btn:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .opt-label {
+            font-weight: 700;
+            color: var(--text-muted);
+            min-width: 18px;
+        }
+
+        /* Answer Reveal & Explanation */
+        .explanation {
+            display: none;
+            margin-top: 12px;
+            padding: 12px 15px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #166534;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* Interactive Feedback Classes */
+        .option-btn.correct-selected {
+            background: var(--success-bg);
+            border-color: var(--success);
+            color: #14532d;
+            font-weight: 600;
+        }
+
+        .option-btn.wrong-selected {
+            background: var(--error-bg);
+            border-color: var(--error);
+            color: #7f1d1d;
+        }
+
+        .option-btn.reveal-correct {
+            border-color: var(--success);
+            background: #f0fdf4;
+            font-weight: 600;
+        }
+
+        /* Code snippets */
+        code {
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Printable PDF Styling Rules */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            .toolbar, .btn, .score-display {
+                display: none !important;
+            }
+            .header {
+                background: none;
+                color: black;
+                padding: 0;
+                border-bottom: 2px solid black;
+                border-radius: 0;
+                margin-bottom: 20px;
+                box-shadow: none;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .student-info {
+                background: none;
+                color: black;
+                border: 1px solid #ccc;
+                font-size: 11px;
+            }
+            .student-info .info-field {
+                border-bottom: 1px solid #ccc;
+            }
+            .section-title {
+                background: #eee;
+                color: black;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                padding: 6px 10px;
+                margin: 20px 0 10px 0;
+                page-break-after: avoid;
+            }
+            .q-card {
+                border: 1px solid #ddd;
+                box-shadow: none;
+                padding: 10px 12px;
+                margin-bottom: 12px;
+                page-break-inside: avoid;
+            }
+            .q-text {
+                font-size: 12px;
+            }
+            .q-num {
+                background: #f0f0f0;
+                color: black;
+                font-size: 11px;
+                padding: 2px 6px;
+            }
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+            .option-btn {
+                background: none;
+                border: 1px solid #eee;
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+            .explanation {
+                border: 1px dashed #48bb78;
+                padding: 6px 10px;
+                font-size: 10.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Document Header -->
+    <header class="header">
+        <h1>Unit 1: HTML & Fundamentals of Web Designing</h1>
+        <p>Comprehensive 100 Multiple Choice Questions (MCQ) Question Bank & Practice Exam</p>
+        <div class="student-info">
+            <div class="info-field"><strong>Course Code:</strong> 2601CS102 / 2301CS202</div>
+            <div class="info-field"><strong>Student Name:</strong> ______________________</div>
+            <div class="info-field"><strong>Enrollment / Roll No:</strong> ________________</div>
+            <div class="info-field"><strong>Date / Time:</strong> ________________________</div>
+        </div>
+    </header>
+
+    <!-- Toolbar / Controls (Hidden on Print) -->
+    <div class="toolbar">
+        <div class="btn-group">
+            <button class="btn" onclick="window.print()">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3h8z"/></svg>
+                Print / Save as PDF
+            </button>
+            <button class="btn btn-accent" onclick="toggleAllExplanations()">Show/Hide All Answers & Explanations</button>
+            <button class="btn btn-secondary" onclick="resetQuiz()">Reset Answers</button>
+        </div>
+        <div class="score-display" id="scoreBoard">Score: 0 / 100</div>
+    </div>
+
+    <main id="quizContent">
+        <!-- Questions will be injected or rendered here -->
+    </main>
+
+</div>
+
+<script>
+const mcqData = [
+    // Section 1: Internet, WWW, & Client-Server Architecture (1-15)
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Who invented the World Wide Web (WWW) and in which year was it first proposed?",
+        options: ["Alan Turing (1975)", "Tim Berners-Lee (1989)", "Vint Cerf (1969)", "Steve Jobs (1995)"],
+        correct: 1,
+        exp: "Tim Berners-Lee proposed the concept of a global hypertext project (World Wide Web) while working at CERN in 1989."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "What is the primary difference between the Internet and the World Wide Web?",
+        options: [
+            "Internet is software; WWW is physical infrastructure.",
+            "Internet is the global hardware network; WWW is an information system service using HTTP.",
+            "They are exact synonyms with no distinction.",
+            "WWW is used exclusively for sending emails."
+        ],
+        correct: 1,
+        exp: "The Internet is the underlying physical network infrastructure (roads), while the WWW is an information system operating on top of it (buildings)."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "In the Client-Server Architecture, which entity initiates the communication by sending a request?",
+        options: ["Web Server", "Client (Web Browser)", "DNS Server", "Database Server"],
+        correct: 1,
+        exp: "The client (web browser) always initiates communication by sending an HTTP request to the server."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "What is the main role of a DNS (Domain Name System) server during web navigation?",
+        options: [
+            "To execute JavaScript code",
+            "To translate human-readable URLs (e.g., www.google.com) into numerical IP addresses",
+            "To encrypt passwords",
+            "To store HTML website files"
+        ],
+        correct: 1,
+        exp: "DNS resolves human-friendly web domain names into IP addresses required by computers to connect over TCP/IP."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Which protocol is primarily used by the Web to transfer web pages and resources?",
+        options: ["SMTP", "FTP", "HTTP / HTTPS", "UDP"],
+        correct: 2,
+        exp: "HyperText Transfer Protocol (HTTP/HTTPS) is the standard application-layer protocol for transmitting web documents."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "What component inside a browser interprets HTML structure, CSS styles, and JavaScript scripts to display a page?",
+        options: ["Rendering Engine & JIT Compilers", "SQL Database Engine", "Router Firmware", "Operating System Kernel"],
+        correct: 0,
+        exp: "Browsers use rendering engines (DOM & CSS interpreters) and JavaScript engines (JIT compilers) to construct and render web pages."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Which of the following is an example of Web Server software?",
+        options: ["Google Chrome", "Mozilla Firefox", "Apache HTTP Server", "Microsoft Edge"],
+        correct: 2,
+        exp: "Apache, Nginx, and IIS are web server software programs that process HTTP requests and deliver web pages."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "What does the abbreviation URL stand for?",
+        options: ["Universal Routing Location", "Uniform Resource Locator", "Unified Rendering Link", "United Resource List"],
+        correct: 1,
+        exp: "URL stands for Uniform Resource Locator, which specifies the internet address of a web resource."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Which precursor network infrastructure was created by the US Department of Defense in the late 1960s?",
+        options: ["ARPANET", "ETHERNET", "CERNNet", "WWWNet"],
+        correct: 0,
+        exp: "ARPANET (Advanced Research Projects Agency Network) was established in the late 1960s as the groundwork for today's Internet."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Which protocol family provides the fundamental communication foundation for the Internet infrastructure?",
+        options: ["HTTP/HTTPS", "TCP/IP", "HTML/CSS", "SSL/TLS"],
+        correct: 1,
+        exp: "TCP/IP (Transmission Control Protocol / Internet Protocol) provides the core network layer rules for hardware communication."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Which service runs on the Internet using the SMTP protocol rather than WWW/HTTP?",
+        options: ["Online Shopping", "Electronic Mail (Email)", "Web Browsing", "Streaming Video Websites"],
+        correct: 1,
+        exp: "Email transmission relies primarily on Simple Mail Transfer Protocol (SMTP)."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "What is a major advantage of the Client-Server Architecture model?",
+        options: [
+            "Centralized data management and resources",
+            "Complete immunity to Denial of Service (DoS) attacks",
+            "Clients do not require internet access",
+            "Servers never experience high traffic load"
+        ],
+        correct: 0,
+        exp: "Centralization allows easy data backup, security management, and scalable resource distribution."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "What type of threat occurs when an attacker sits between client and server to intercept or modify communication?",
+        options: ["Man-in-the-Middle (MITM) Attack", "Cross-Site Scripting", "Broken Link", "404 Error"],
+        correct: 0,
+        exp: "In a Man-in-the-Middle (MITM) attack, an unauthorized entity secretly relays and potentially alters communication between two parties."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "Which browser rendering engine is utilized by Apple Safari?",
+        options: ["Blink", "Gecko", "WebKit", "Trident"],
+        correct: 2,
+        exp: "Safari uses the WebKit engine, Firefox uses Gecko, and Chrome/Edge use Blink."
+    },
+    {
+        topic: "1. Internet, WWW & Client-Server Architecture",
+        q: "When a browser opens a website for the first time, where does it temporarily save images and scripts for quicker re-loading?",
+        options: ["DNS Database", "Browser Cache", "ROM", "Web Server Directory"],
+        correct: 1,
+        exp: "Browser cache stores local copies of static resources to avoid re-downloading them on subsequent visits."
+    },
+
+    // Section 2: HTTP/HTTPS Protocols & Status Codes (16-28)
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "Why is standard HTTP called a 'stateless' protocol?",
+        options: [
+            "It cannot transmit images or audio.",
+            "The server treats every request as completely independent and retains no memory of previous requests.",
+            "It does not require a web server to function.",
+            "It only functions in a single country or state."
+        ],
+        correct: 1,
+        exp: "HTTP is stateless because each request-response pair is executed independently without inherent state saved across connections."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "Which HTTP request method is used when submitting form data securely inside the request body without appending data to the URL?",
+        options: ["GET", "POST", "HEAD", "OPTIONS"],
+        correct: 1,
+        exp: "POST sends data embedded inside the HTTP request body, making it secure for sensitive parameters like passwords."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "What HTTP method should be used to request data from a web server without altering any data on the server?",
+        options: ["GET", "POST", "DELETE", "PUT"],
+        correct: 0,
+        exp: "GET is a safe, idempotent method intended exclusively to retrieve data from a resource."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "What security layer is added to standard HTTP to create HTTPS?",
+        options: ["FTP/SSH", "SSL / TLS Encryption", "DNSSEC", "IPv6"],
+        correct: 1,
+        exp: "HTTPS adds SSL (Secure Sockets Layer) or TLS (Transport Layer Security) to encrypt data in transit."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "What does the HTTP status code '200' signify?",
+        options: ["Created", "OK (Request succeeded)", "Moved Permanently", "Bad Request"],
+        correct: 1,
+        exp: "HTTP status code 200 OK means the client's request was successfully processed and returned by the server."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "What does the famous HTTP status code '404' mean?",
+        options: ["Unauthorized", "Internal Server Error", "File / Page Not Found", "Gateway Timeout"],
+        correct: 2,
+        exp: "404 Not Found indicates that the server could not locate the requested resource or URL."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "In HTTP status codes, which number range indicates a Server-side Error (e.g., 500, 503)?",
+        options: ["2xx", "3xx", "4xx", "5xx"],
+        correct: 3,
+        exp: "5xx codes denote server errors, 4xx denote client errors, 3xx denote redirections, and 2xx denote success."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "Which HTTP request method is designed to completely replace an existing resource on the server?",
+        options: ["GET", "PUT", "PATCH", "CONNECT"],
+        correct: 1,
+        exp: "PUT replaces the target resource with the uploaded payload, whereas PATCH performs a partial modification."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "What does the HTTP status code '301' represent?",
+        options: ["Moved Permanently", "Unauthorized Access", "Forbidden", "Bad Request"],
+        correct: 0,
+        exp: "301 indicates that the requested URI has been permanently assigned a new location."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "Which HTTP status code category represents Client Errors (e.g., Bad Request, Unauthorized)?",
+        options: ["1xx", "2xx", "4xx", "5xx"],
+        correct: 2,
+        exp: "4xx status codes point to errors caused by client requests (invalid syntax, unauthorized access, missing page)."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "Which HTTP method is specifically designed to perform partial updates to a resource?",
+        options: ["POST", "PUT", "PATCH", "DELETE"],
+        correct: 2,
+        exp: "PATCH modifies only specified fields of an existing resource rather than replacing the entire object."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "Which header category provides metadata regarding the body content of an HTTP message (e.g., Content-Type)?",
+        options: ["Request Header", "Entity Header", "General Header", "Response Header"],
+        correct: 1,
+        exp: "Entity headers define metainformation about the message entity body (like size or media type)."
+    },
+    {
+        topic: "2. HTTP/HTTPS Protocols & Status Codes",
+        q: "What character limit is generally enforced when sending data via the HTTP GET method URL query string?",
+        options: ["Unlimited", "Approximately 2048 characters", "10 megabytes", "100 characters"],
+        correct: 1,
+        exp: "GET requests append data to the URL length limit, typically restricted to ~2048 characters depending on browser/server."
+    },
+
+    // Section 3: Principles of Web Design, Issues & Navigation (29-42)
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "Which design principle involves arranging visual elements by size, color, and weight to guide user attention by importance?",
+        options: ["Contrast", "Visual Hierarchy", "F-Shape Pattern", "Sitemap"],
+        correct: 1,
+        exp: "Visual Hierarchy prioritizes content visually so users perceive the relative importance of each element intuitively."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "According to web eye-tracking studies, what natural scanning pattern do users typically follow when reading web pages?",
+        options: ["Z-Shape Pattern", "F-Shape Reading Pattern", "O-Shape Circle", "Bottom-Up Scan"],
+        correct: 1,
+        exp: "The F-Shape pattern shows users first scan horizontally across the top, then down the left margin in short horizontal sweeps."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "What is the 'Three-Click Rule' in web navigation design?",
+        options: [
+            "A user should be able to reach any information on a site within 3 mouse clicks from the homepage.",
+            "All buttons must be clicked 3 times to submit a form.",
+            "A website must load in less than 3 milliseconds.",
+            "Links can only be clicked 3 times per session."
+        ],
+        correct: 0,
+        exp: "The 3-click rule states users shouldn't need more than 3 navigation clicks from the homepage to find desired content."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "Which web design approach prioritizes designing layouts for small mobile device screens before scaling up to desktop displays?",
+        options: ["Desktop-First Design", "Mobile-First Design", "Fixed Resolution Design", "Backend-First Design"],
+        correct: 1,
+        exp: "Mobile-First design establishes core content and functionality for smaller screen constraints first."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "If a web page's load time increases from 1 second to 3 seconds, what happens to the user bounce rate according to performance statistics?",
+        options: ["Decreases by 50%", "Increases by approximately 32%", "Remains completely unchanged", "Drops to zero"],
+        correct: 1,
+        exp: "Slow page loading directly causes user frustration; bounce rates jump by ~32% as load time goes from 1s to 3s."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "What type of navigation element displays the user's current location within a website hierarchy (e.g., Home > Courses > HTML)?",
+        options: ["Sticky Nav", "Breadcrumb Trail", "Hamburger Menu", "Footer Link"],
+        correct: 1,
+        exp: "Breadcrumbs show contextual depth and location path in nested site hierarchies."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "Which navigation bar remains fixed at the top of the screen while the user scrolls down long pages?",
+        options: ["Footer Navigation", "Sticky Navigation", "Breadcrumb Trail", "Sidebar Drawer"],
+        correct: 1,
+        exp: "Sticky navigation retains fixed position at the top of the viewport during vertical scrolling."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "What icon is standardly used on mobile responsive interfaces to toggle collapsed navigation menus?",
+        options: ["Gear Icon", "Hamburger Menu Icon (☰)", "Magnifying Glass", "Paperclip"],
+        correct: 1,
+        exp: "The three horizontal lines (hamburger icon) universally represent collapsed mobile navigation drawers."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "Which standard guidelines must web designers follow to make sites accessible to users with visual, motor, or cognitive disabilities?",
+        options: ["SEO Rules", "WCAG (Web Content Accessibility Guidelines)", "HTTP/2 Standard", "W3C HTML Validator"],
+        correct: 1,
+        exp: "WCAG provides internationally recognized standards for accessible digital web design."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "What web feature provides a hierarchical tree or map listing all major sections and pages of a complex site?",
+        options: ["Breadcrumb", "Sitemap", "Cookies", "Favicon"],
+        correct: 1,
+        exp: "A sitemap helps visitors and search engine crawlers navigate site structure efficiently."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "When dividing a computer screen into five major viewing priority regions, which region holds the primary visual importance?",
+        options: ["Top", "Left", "Center", "Bottom"],
+        correct: 2,
+        exp: "User viewing pattern analysis reveals the center of the display area carries initial visual focus."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "Why is Cross-Browser Compatibility critical during web design?",
+        options: [
+            "Because different web browsers and engines can render identical CSS/HTML tags differently.",
+            "Because browsers convert HTML into Python code.",
+            "Because only Google Chrome supports internet access.",
+            "To prevent internet service providers from blocking websites."
+        ],
+        correct: 0,
+        exp: "Cross-browser testing ensures consistent rendering across varying browser engines (Blink, Gecko, WebKit)."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "What is the recommended maximum target web page load time to prevent high user drop-off?",
+        options: ["Under 3 seconds", "15 to 20 seconds", "1 minute", "30 seconds"],
+        correct: 0,
+        exp: "Optimized web pages target under 3 seconds load time to maintain high user engagement."
+    },
+    {
+        topic: "3. Principles of Web Design, Issues & Navigation",
+        q: "Which term describes designing layouts that automatically adjust gracefully across all display resolutions (mobile to desktop)?",
+        options: ["Static Web Design", "Responsive Web Design", "Fixed Matrix Design", "Monolithic Design"],
+        correct: 1,
+        exp: "Responsive Web Design adapts layout presentation dynamically across diverse device viewports."
+    },
+
+    // Section 4: HTML Page Architecture & Meta Tags (43-54)
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which declaration MUST be placed at the very first line of an HTML5 document?",
+        options: ["<html>", "<!DOCTYPE html>", "<head>", "<meta charset=\"UTF-8\">"],
+        correct: 1,
+        exp: "<code><!DOCTYPE html></code> informs browser standards-mode rendering that the document is HTML5."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which element is the root container tag wrapping all other HTML elements on a page?",
+        options: ["<body>", "<head>", "<html>", "<main>"],
+        correct: 2,
+        exp: "The <code><html></code> tag is the root element encapsulating head and body."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Where should metadata elements like <code><meta></code>, <code><title></code>, and <code><link></code> be placed inside an HTML document?",
+        options: ["Inside the <body> tag", "Inside the <head> tag", "Inside the <footer> tag", "After the </html> closing tag"],
+        correct: 1,
+        exp: "The <code><head></code> element contains metadata and links that are not directly rendered on the main page canvas."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which meta tag statement is MANDATORY for ensuring modern mobile responsive rendering?",
+        options: [
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "<meta name=\"mobile\" content=\"true\">",
+            "<meta http-equiv=\"refresh\" content=\"10\">",
+            "<meta name=\"screen\" content=\"responsive\">"
+        ],
+        correct: 0,
+        exp: "The viewport meta tag instructs mobile browsers to match viewport width to device screen width without auto-zooming out."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "What character encoding standard is universally specified in HTML5 to support all language scripts, symbols, and emojis?",
+        options: ["ASCII", "UTF-8", "ISO-8859-1", "Windows-1252"],
+        correct: 1,
+        exp: "<code><meta charset=\"UTF-8\"></code> ensures broad support for international character sets and symbols."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Where does text written inside the <code><title></code> tag appear?",
+        options: [
+            "Inside the main body paragraph",
+            "On the top tab bar of the web browser",
+            "Inside the footer section",
+            "In a popup window"
+        ],
+        correct: 1,
+        exp: "The <code><title></code> text appears in the browser tab header and search engine engine results titles."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which meta tag automatically reloads the current web page every 30 seconds?",
+        options: [
+            "<meta name=\"reload\" content=\"30\">",
+            "<meta http-equiv=\"refresh\" content=\"30\">",
+            "<meta name=\"timer\" content=\"30s\">",
+            "<meta http-equiv=\"loop\" content=\"true\">"
+        ],
+        correct: 1,
+        exp: "<code>http-equiv=\"refresh\"</code> with a numeric content value sets an automatic browser refresh interval in seconds."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which element is correct for linking an external CSS stylesheet file named 'style.css' to an HTML document?",
+        options: [
+            "<link rel=\"stylesheet\" href=\"style.css\">",
+            "<style src=\"style.css\">",
+            "<script href=\"style.css\">",
+            "<css link=\"style.css\">"
+        ],
+        correct: 0,
+        exp: "The <code><link rel=\"stylesheet\" href=\"...\"></code> tag links external stylesheets within the document <code><head></code>."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which attribute inside the <code><html></code> tag defines the primary language of the document (e.g., English)?",
+        options: ["lang=\"en\"", "language=\"english\"", "meta=\"en\"", "code=\"en\""],
+        correct: 0,
+        exp: "The <code>lang</code> attribute (e.g. <code><html lang=\"en\"></code>) aids screen readers and search engines in determining language."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which element contains ALL visible web page content like text, headings, images, forms, and tables?",
+        options: ["<head>", "<body>", "<meta>", "<html>"],
+        correct: 1,
+        exp: "The <code><body></code> section holds all visible layout content rendered in the browser window."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Which meta attribute name provides a brief summary snippet of the web page for search engine results?",
+        options: ["name=\"summary\"", "name=\"description\"", "name=\"seo\"", "name=\"about\""],
+        correct: 1,
+        exp: "<code><meta name=\"description\" content=\"...\"></code> supplies search engines with page snippet descriptions."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags",
+        q: "Are <code><meta></code> tags self-closing (void) elements or do they require closing <code></meta></code> tags?",
+        options: [
+            "They require closing </meta> tags.",
+            "They are self-closing (void) elements with no closing tag.",
+            "They must end with </head>.",
+            "They require a matching <body> tag."
+        ],
+        correct: 1,
+        exp: "In HTML, <code><meta></code> is a void element and does not have a closing tag."
+    },
+
+    // Section 5: Text Formatting, Headings & Structural Elements (55-68)
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "How many levels of heading tags does HTML natively support?",
+        options: ["3 levels (h1 to h3)", "6 levels (h1 to h6)", "10 levels (h1 to h10)", "4 levels (h1 to h4)"],
+        correct: 1,
+        exp: "HTML provides 6 heading levels: <code><h1></code> (largest) down to <code><h6></code> (smallest)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "What is the recommended SEO standard regarding the usage of <code><h1></code> tags on a single page?",
+        options: [
+            "Use as many h1 tags as possible.",
+            "Always use exactly ONE h1 tag per page representing the primary page topic.",
+            "Never use h1 tags.",
+            "Skip h1 and start directly with h4."
+        ],
+        correct: 1,
+        exp: "SEO best practice dictates using exactly one main <code><h1></code> heading per page to mark the primary topic."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "What is the key functional semantic difference between the <code><b></code> tag and the <code><strong></code> tag?",
+        options: [
+            "<b> is visually bold only, while <strong> implies semantic importance/urgency for screen readers.",
+            "<strong> makes text italic; <b> makes text underlined.",
+            "There is no difference; <b> is non-standard.",
+            "<b> can only be used inside tables."
+        ],
+        correct: 0,
+        exp: "<code><b></code> styles bold purely visually, whereas <code><strong></code> conveys strong importance semantically."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag should be used to denote stressed emphasis semantically rather than just visual italics (<code><i></code>)?",
+        options: ["<italic>", "<em>", "<mark>", "<bold>"],
+        correct: 1,
+        exp: "<code><em></code> denotes structural stress emphasis, whereas <code><i></code> provides italic styling without implicit importance."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which HTML tag renders text highlighted with a default yellow background marker effect?",
+        options: ["<highlight>", "<mark>", "<yellow>", "<color>"],
+        correct: 1,
+        exp: "The <code><mark></code> element represents highlighted text for reference or notation purposes."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag creates chemical formula subscripts (e.g., H₂O)?",
+        options: ["<sup>", "<sub>", "<down>", "<small>"],
+        correct: 1,
+        exp: "<code><sub></code> renders subscript text baseline-lowered (e.g., H<code><sub>2</sub></code>O)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag creates mathematical power superscripts (e.g., E = mc²)?",
+        options: ["<sup>", "<sub>", "<up>", "<power>"],
+        correct: 0,
+        exp: "<code><sup></code> renders superscript text baseline-raised (e.g., mc<code><sup>2</sup></code>)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which HTML tag preserves all exact spaces, tabs, and line breaks as typed directly in the source code?",
+        options: ["<code>", "<pre>", "<blockquote>", "<p>"],
+        correct: 1,
+        exp: "The <code><pre></code> tag displays preformatted text using a fixed-width font, retaining whitespace literally."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "What is the structural difference between a <code><div></code> and a <code><span></code> element?",
+        options: [
+            "<div> is a block-level container; <span> is an inline container.",
+            "<span> takes full screen width; <div> takes only text width.",
+            "<div> is used for images only; <span> for links.",
+            "There is no structural difference."
+        ],
+        correct: 0,
+        exp: "<code><div></code> is a block-level element taking full line width; <code><span></code> is an inline element wrapping text flows."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which self-closing tag inserts a single line break without starting a new paragraph block?",
+        options: ["<hr>", "<br>", "<break>", "<lb>"],
+        correct: 1,
+        exp: "<code><br></code> inserts a line break within text."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag draws a horizontal rule / dividing line across the page to break content topics?",
+        options: ["<line>", "<hr>", "<border>", "<break>"],
+        correct: 1,
+        exp: "<code><hr></code> inserts a thematic horizontal divider line."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag set represents strikethrough (deleted) text and newly inserted text respectively?",
+        options: ["<del> and <ins>", "<remove> and <add>", "<strike> and <new>", "<b> and <i>"],
+        correct: 0,
+        exp: "<code><del></code> represents deleted text (strikethrough) and <code><ins></code> represents inserted text (underlined)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag displays inline code snippets using a monospace font?",
+        options: ["<script>", "<code>", "<pre>", "<tt>"],
+        correct: 1,
+        exp: "The <code><code></code> element styles computer code snippets in monospace typography."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which element is used to enclose long, indented quotations cited from external sources?",
+        options: ["<q>", "<blockquote>", "<cite>", "<quote>"],
+        correct: 1,
+        exp: "<code><blockquote></code> formats long multi-line block quotations with default margin indentations."
+    },
+
+    // Section 6: HTML Lists, Anchors & Links (69-78)
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which tag pair creates an Unordered List with bullet points?",
+        options: ["<ol> and <li>", "<ul> and <li>", "<dl> and <dt>", "<list> and <item>"],
+        correct: 1,
+        exp: "<code><ul></code> creates an unordered (bulleted) list; items are placed within <code><li></code> tags."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which tag pair creates an Ordered (numbered/sequenced) List?",
+        options: ["<ol> and <li>", "<ul> and <li>", "<dl> and <dd>", "<order> and <item>"],
+        correct: 0,
+        exp: "<code><ol></code> defines an ordered list using numerical or alphabetical sequence markers."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "In an Ordered List <code><ol></code>, which attribute specifies the starting numeric counter value?",
+        options: ["type=\"1\"", "start=\"4\"", "begin=\"4\"", "value=\"4\""],
+        correct: 1,
+        exp: "The <code>start</code> attribute (e.g. <code><ol start=\"4\"></code>) sets the initial numeric index."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which three tags comprise a Description/Glossary List structure in HTML?",
+        options: [
+            "<ul>, <ol>, <li>",
+            "<dl> (description list), <dt> (term), <dd> (definition description)",
+            "<table>, <tr>, <td>",
+            "<form>, <input>, <label>"
+        ],
+        correct: 1,
+        exp: "Description lists use <code><dl></code> container, <code><dt></code> for terms, and <code><dd></code> for descriptions."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which attribute inside an anchor tag <code><a></code> specifies the destination web address or link path?",
+        options: ["src", "href", "link", "target"],
+        correct: 1,
+        exp: "The <code>href</code> (hypertext reference) attribute dictates the target address URL."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "What value of the <code>target</code> attribute forces a hyperlinked webpage to open in a NEW browser tab or window?",
+        options: ["target=\"_self\"", "target=\"_blank\"", "target=\"_top\"", "target=\"_parent\""],
+        correct: 1,
+        exp: "<code>target=\"_blank\"</code> opens the linked document in a new tab or window."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "How do you create an email hyperlink that opens the user's default email program?",
+        options: [
+            "<a href=\"email:info@example.com\">",
+            "<a href=\"mailto:info@example.com\">",
+            "<a link=\"mail:info@example.com\">",
+            "<a href=\"sendmail?to=info@example.com\">"
+        ],
+        correct: 1,
+        exp: "The <code>mailto:</code> prefix scheme triggers the user's email client."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which attribute added to an anchor tag forces the browser to download the target file directly rather than displaying it?",
+        options: ["download", "save", "target=\"_download\"", "type=\"file\""],
+        correct: 0,
+        exp: "The boolean <code>download</code> attribute instructs browsers to download the target resource."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "How do you construct an anchor link that jumps to an element on the same page with <code>id=\"contact-us\"</code>?",
+        options: [
+            "<a href=\"#contact-us\">Jump to Contact</a>",
+            "<a href=\"goto:contact-us\">Jump to Contact</a>",
+            "<a href=\"id:contact-us\">Jump to Contact</a>",
+            "<a link=\"contact-us\">Jump to Contact</a>"
+        ],
+        correct: 0,
+        exp: "The hash symbol (<code>#</code>) followed by an element ID creates an internal document bookmark link."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "In an image tag <code><img src=\"photo.jpg\" alt=\"Logo\"></code>, why is the <code>alt</code> attribute essential?",
+        options: [
+            "It speeds up image loading.",
+            "It provides descriptive alternative text if the image fails to load and supports accessibility screen readers.",
+            "It defines image border width.",
+            "It changes image brightness."
+        ],
+        correct: 1,
+        exp: "<code>alt</code> text provides descriptive fallback text for screen readers and missing images."
+    },
+
+    // Section 7: HTML Tables & Structure (79-87)
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which tag defines an individual data cell within an HTML table row?",
+        options: ["<th>", "<td>", "<tr>", "<table>"],
+        correct: 1,
+        exp: "<code><td></code> (table data) represents standard data cells in table rows."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "How do table header cells <code><th></code> visually differ from standard data cells <code><td></code> by default?",
+        options: [
+            "<th> text is bold and centered automatically.",
+            "<th> text is blue and underlined.",
+            "<th> text is italicized and right-aligned.",
+            "There is no visual difference."
+        ],
+        correct: 0,
+        exp: "Browsers display text inside <code><th></code> header cells as bold and horizontally centered."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which attribute is used to merge a single table cell horizontally across 3 columns?",
+        options: ["rowspan=\"3\"", "colspan=\"3\"", "merge=\"3\"", "grid-columns=\"3\""],
+        correct: 1,
+        exp: "<code>colspan=\"3\"</code> spans a cell across 3 horizontal columns."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which attribute is used to merge a single table cell vertically down across 2 rows?",
+        options: ["rowspan=\"2\"", "colspan=\"2\"", "rowmerge=\"2\"", "valign=\"2\""],
+        correct: 0,
+        exp: "<code>rowspan=\"2\"</code> extends a cell downward across 2 vertical rows."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which tag adds a title or caption header directly above an HTML table?",
+        options: ["<title>", "<caption>", "<head>", "<label>"],
+        correct: 1,
+        exp: "The <code><caption></code> tag specifies a title caption centered above the table."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "In HTML tables, what is the exact functional distinction between <code>cellpadding</code> and <code>cellspacing</code>?",
+        options: [
+            "cellpadding is space between cell border and content inside; cellspacing is space between adjacent cells.",
+            "cellpadding is space between cells; cellspacing is padding inside cells.",
+            "They perform identical functions.",
+            "cellpadding controls text color."
+        ],
+        correct: 0,
+        exp: "Cellpadding dictates internal distance between border and text; Cellspacing dictates distance between distinct cell borders."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which trio of semantic tags allows logical grouping of table headers, data body, and summary footers?",
+        options: [
+            "<thead>, <tbody>, <tfoot>",
+            "<header>, <content>, <footer>",
+            "<top>, <middle>, <bottom>",
+            "<th>, <td>, <tr>"
+        ],
+        correct: 0,
+        exp: "Tables utilize <code><thead></code>, <code><tbody></code>, and <code><tfoot></code> for semantic section division."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "What is the primary modern web rule regarding using HTML tables for page layouts?",
+        options: [
+            "Tables should be used for all web page layouts.",
+            "Tables must NEVER be used for page layout (use CSS Flexbox/Grid); tables are strictly for structured tabular data.",
+            "Tables are only for mobile layouts.",
+            "Tables can be used if CSS is disabled."
+        ],
+        correct: 1,
+        exp: "Tables are designed exclusively for tabular data. CSS layout tools (Flexbox, Grid) handle page presentation."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which element defines a single horizontal row inside an HTML table?",
+        options: ["<td>", "<th>", "<tr>", "<table>"],
+        correct: 2,
+        exp: "<code><tr></code> (table row) encapsulates horizontal cells."
+    },
+
+    // Section 8: HTML Forms & Form Validation (88-95)
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which attribute of a <code><form></code> tag defines the server URL script where submitted data is sent?",
+        options: ["method", "action", "target", "enctype"],
+        correct: 1,
+        exp: "The <code>action</code> attribute specifies the destination processing script URL."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "What is the critical security vulnerability of using <code>method=\"GET\"</code> when submitting passwords in forms?",
+        options: [
+            "GET encrypts passwords too heavily.",
+            "GET appends form field values directly into the browser URL bar in plain view.",
+            "GET deletes form data from server databases.",
+            "GET only works on desktop computers."
+        ],
+        correct: 1,
+        exp: "GET appends name/value parameters to the plaintext URL query string, exposing sensitive input in browser history."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which form element allows a user to choose EXACTLY ONE option from a mutually exclusive group?",
+        options: [
+            "<input type=\"checkbox\">",
+            "<input type=\"radio\"> with matching name attributes",
+            "<input type=\"text\">",
+            "<select multiple>"
+        ],
+        correct: 1,
+        exp: "Radio button groups with shared <code>name</code> attributes enforce mutually exclusive single choices."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which element allows users to select MULTIPLE non-exclusive options in a form?",
+        options: [
+            "<input type=\"checkbox\">",
+            "<input type=\"radio\">",
+            "<input type=\"password\">",
+            "<input type=\"submit\">"
+        ],
+        correct: 0,
+        exp: "Checkboxes permit selecting multiple independent options."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which HTML form element creates a multi-line text input field?",
+        options: [
+            "<input type=\"text\">",
+            "<textarea>",
+            "<input type=\"multiline\">",
+            "<textbox>"
+        ],
+        correct: 1,
+        exp: "The <code><textarea></code> element accepts multi-line text entries."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which attribute ensures a form input field CANNOT be submitted empty by triggering native browser validation?",
+        options: ["validate", "required", "mandatory", "important"],
+        correct: 1,
+        exp: "The boolean <code>required</code> attribute prevents form submission if the input field is left empty."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which attribute connects a <code><label></code> element to a specific <code><input></code> field for accessibility focus?",
+        options: ["label's for attribute matching input's id attribute", "label's name attribute matching input's name", "label's src matching input's href", "No connection is possible"],
+        correct: 0,
+        exp: "Setting <code><label for=\"email\"></code> binds focus to the element with <code>id=\"email\"</code>."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which native HTML5 attribute allows input validation using Regular Expressions (Regex)?",
+        options: ["regex", "pattern", "rule", "match"],
+        correct: 1,
+        exp: "The <code>pattern</code> attribute tests the input value against a provided Regular Expression."
+    },
+
+    // Section 9: HTML5 Multimedia & Semantic Elements (96-100)
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which HTML5 tag natively embeds audio playback without requiring legacy third-party plugins like Adobe Flash?",
+        options: ["<sound>", "<audio>", "<music>", "<media>"],
+        correct: 1,
+        exp: "HTML5 introduced native <code><audio></code> tags supported across modern browsers."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "In an HTML5 <code><video></code> tag, what does the <code>poster</code> attribute do?",
+        options: [
+            "Plays background music.",
+            "Displays a still thumbnail image before the video is played.",
+            "Adds subtitles to the video.",
+            "Enlarges video to fullscreen automatically."
+        ],
+        correct: 1,
+        exp: "The <code>poster</code> attribute specifies an image URL shown while video downloads or until play is clicked."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which element is used to embed external resources like YouTube videos or Google Maps directly inside an HTML page?",
+        options: ["<embed>", "<iframe>", "<frame>", "<object>"],
+        correct: 1,
+        exp: "An inline frame <code><iframe></code> embeds external documents or widgets inside the current document."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which HTML5 semantic element is intended for independent, self-contained reusable content like blog posts or news items?",
+        options: ["<section>", "<article>", "<aside>", "<main>"],
+        correct: 1,
+        exp: "<code><article></code> represents self-contained compositions independently distributable or reusable."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which HTML5 tag pair groups media elements (like an image or chart) with an associated descriptive caption?",
+        options: [
+            "<media> and <caption\>",
+            "<figure> and <figcaption>",
+            "<image> and <text>",
+            "<div> and <p>"
+        ],
+        correct: 1,
+        exp: "<code><figure></code> wraps self-contained artwork, and <code><figcaption></code> provides its legend or caption."
+    }
+];
+
+// State variables
+let userAnswers = {};
+let showExplanations = false;
+
+// Render Quiz Content
+function renderQuiz() {
+    const container = document.getElementById('quizContent');
+    let currentTopic = "";
+    let html = "";
+
+    mcqData.forEach((item, index) => {
+        const qNum = index + 1;
+        
+        // Add Section Header if topic changes
+        if (item.topic !== currentTopic) {
+            currentTopic = item.topic;
+            html += `<div class="section-title">${currentTopic}</div>`;
+        }
+
+        html += `
+            <div class="q-card" id="q-card-${index}">
+                <div class="q-header">
+                    <span class="q-num">Q${qNum}</span>
+                    <div class="q-text">${item.q}</div>
+                </div>
+                <div class="options-grid">
+                    ${item.options.map((opt, optIdx) => {
+                        const letter = String.fromCharCode(65 + optIdx);
+                        return `
+                            <button class="option-btn" id="opt-${index}-${optIdx}" onclick="selectAnswer(${index}, ${optIdx})">
+                                <span class="opt-label">${letter}.</span>
+                                <span>${escapeHtml(opt)}</span>
+                            </button>
+                        `;
+                    }).join('')}
+                </div>
+                <div class="explanation ${showExplanations ? 'show' : ''}" id="exp-${index}">
+                    <div class="explanation-title">✓ Correct Answer: Option ${String.fromCharCode(65 + item.correct)}</div>
+                    <div>${item.exp}</div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+function escapeHtml(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function selectAnswer(qIdx, optIdx) {
+    userAnswers[qIdx] = optIdx;
+    const correctIdx = mcqData[qIdx].correct;
+
+    // Clear previous option styles for this question
+    for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`opt-${qIdx}-${i}`);
+        if (btn) {
+            btn.className = "option-btn";
+        }
+    }
+
+    const selectedBtn = document.getElementById(`opt-${qIdx}-${optIdx}`);
+    const expDiv = document.getElementById(`exp-${qIdx}`);
+
+    if (optIdx === correctIdx) {
+        selectedBtn.classList.add("correct-selected");
+    } else {
+        selectedBtn.classList.add("wrong-selected");
+        const correctBtn = document.getElementById(`opt-${qIdx}-${correctIdx}`);
+        if (correctBtn) correctBtn.classList.add("reveal-correct");
+    }
+
+    if (expDiv) expDiv.classList.add("show");
+
+    updateScore();
+}
+
+function updateScore() {
+    let score = 0;
+    Object.keys(userAnswers).forEach(qIdx => {
+        if (userAnswers[qIdx] === mcqData[qIdx].correct) {
+            score++;
+        }
+    });
+    document.getElementById('scoreBoard').innerText = `Score: ${score} / 100`;
+}
+
+function toggleAllExplanations() {
+    showExplanations = !showExplanations;
+    mcqData.forEach((item, index) => {
+        const expDiv = document.getElementById(`exp-${index}`);
+        if (expDiv) {
+            if (showExplanations) {
+                expDiv.classList.add('show');
+            } else {
+                // If user answered, keep it shown
+                if (userAnswers[index] === undefined) {
+                    expDiv.classList.remove('show');
+                }
+            }
+        }
+    });
+}
+
+function resetQuiz() {
+    userAnswers = {};
+    showExplanations = false;
+    document.getElementById('scoreBoard').innerText = "Score: 0 / 100";
+    renderQuiz();
+}
+
+// Initial initialization
+window.onload = renderQuiz;
+</script>
+</body>
+</html>
+```eof
+
+### Content Summary & PDF Instructions
+
+I have created `unit1_html_100_mcq_bank.html`, containing all 100 MCQs covering the complete syllabus of **Unit 1: HTML & Fundamentals of Web Designing**.
+
+#### Topic Breakdown (100 MCQs):
+1. **Internet, WWW & Client-Server Architecture** (Q1 – Q15)
+2. **HTTP/HTTPS Protocols & Status Codes** (Q16 – Q28)
+3. **Principles of Web Design, Issues & Navigation Architecture** (Q29 – Q42)
+4. **HTML Page Architecture & Meta Tags** (Q43 – Q54)
+5. **Text Formatting, Headings & Structural Elements** (Q55 – Q68)
+6. **HTML Lists, Anchors & Hyperlinks** (Q69 – Q78)
+7. **HTML Tables & Structure** (Q79 – Q87)
+8. **HTML Forms & Form Validation** (Q88 – Q95)
+9. **HTML5 Multimedia & Semantic Layout Elements** (Q96 – Q100)
+
+#### How to Export to PDF:
+1. Open `unit1_html_100_mcq_bank.html` in your web browser (Chrome, Edge, Firefox, or Safari).
+2. Click the **"Print / Save as PDF"** button at the top (or press `Ctrl + P` / `Cmd + P`).
+3. Set the printer destination to **Save as PDF**.
+4. (Optional) If you want the document to include answers in the PDF, click **"Show/Hide All Answers & Explanations"** before printing.

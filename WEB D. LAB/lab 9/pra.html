@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: HTML & Web Fundamentals - MCQ Part 2</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --accent: #0284c7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header & Info Bar */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .student-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .info-field {
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+            padding-bottom: 4px;
+        }
+
+        /* Toolbar & Controls */
+        .toolbar {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background-color: #64748b;
+        }
+
+        .btn-secondary:hover {
+            background-color: #475569;
+        }
+
+        .btn-accent {
+            background-color: #059669;
+        }
+
+        .btn-accent:hover {
+            background-color: #10b981;
+        }
+
+        .score-display {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary);
+            background: #eff6ff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* Topic Section */
+        .section-title {
+            background: #1e293b;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Question Cards */
+        .q-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+        }
+
+        .q-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .q-num {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            height: fit-content;
+            white-space: nowrap;
+        }
+
+        .q-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            flex: 1;
+        }
+
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .option-btn {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-align: left;
+            font-size: 13.5px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .option-btn:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .opt-label {
+            font-weight: 700;
+            color: var(--text-muted);
+            min-width: 18px;
+        }
+
+        /* Answer Reveal & Explanation */
+        .explanation {
+            display: none;
+            margin-top: 12px;
+            padding: 12px 15px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #166534;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* Interactive Feedback Classes */
+        .option-btn.correct-selected {
+            background: var(--success-bg);
+            border-color: var(--success);
+            color: #14532d;
+            font-weight: 600;
+        }
+
+        .option-btn.wrong-selected {
+            background: var(--error-bg);
+            border-color: var(--error);
+            color: #7f1d1d;
+        }
+
+        .option-btn.reveal-correct {
+            border-color: var(--success);
+            background: #f0fdf4;
+            font-weight: 600;
+        }
+
+        /* Code snippets */
+        code {
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Printable PDF Styling Rules */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            .toolbar, .btn, .score-display {
+                display: none !important;
+            }
+            .header {
+                background: none;
+                color: black;
+                padding: 0;
+                border-bottom: 2px solid black;
+                border-radius: 0;
+                margin-bottom: 20px;
+                box-shadow: none;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .student-info {
+                background: none;
+                color: black;
+                border: 1px solid #ccc;
+                font-size: 11px;
+            }
+            .student-info .info-field {
+                border-bottom: 1px solid #ccc;
+            }
+            .section-title {
+                background: #eee;
+                color: black;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                padding: 6px 10px;
+                margin: 20px 0 10px 0;
+                page-break-after: avoid;
+            }
+            .q-card {
+                border: 1px solid #ddd;
+                box-shadow: none;
+                padding: 10px 12px;
+                margin-bottom: 12px;
+                page-break-inside: avoid;
+            }
+            .q-text {
+                font-size: 12px;
+            }
+            .q-num {
+                background: #f0f0f0;
+                color: black;
+                font-size: 11px;
+                padding: 2px 6px;
+            }
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+            .option-btn {
+                background: none;
+                border: 1px solid #eee;
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+            .explanation {
+                border: 1px dashed #48bb78;
+                padding: 6px 10px;
+                font-size: 10.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Document Header -->
+    <header class="header">
+        <h1>Unit 1: HTML & Fundamentals of Web Designing - Part 2</h1>
+        <p>Comprehensive Multiple Choice Questions (Questions 46 - 100)</p>
+        <div class="student-info">
+            <div class="info-field"><strong>Course Code:</strong> 2601CS102 / 2301CS202</div>
+            <div class="info-field"><strong>Student Name:</strong> ______________________</div>
+            <div class="info-field"><strong>Enrollment / Roll No:</strong> ________________</div>
+            <div class="info-field"><strong>Date / Time:</strong> ________________________</div>
+        </div>
+    </header>
+
+    <!-- Toolbar / Controls (Hidden on Print) -->
+    <div class="toolbar">
+        <div class="btn-group">
+            <button class="btn" onclick="window.print()">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3h8z"/></svg>
+                Print / Save as PDF
+            </button>
+            <button class="btn btn-accent" onclick="toggleAllExplanations()">Show/Hide All Answers & Explanations</button>
+            <button class="btn btn-secondary" onclick="resetQuiz()">Reset Answers</button>
+        </div>
+        <div class="score-display" id="scoreBoard">Score: 0 / 55</div>
+    </div>
+
+    <main id="quizContent">
+        <!-- Questions will be rendered here -->
+    </main>
+
+</div>
+
+<script>
+const mcqData = [
+    // Topic 4: HTML Page Architecture & Meta Tags (Continued from Q45)
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Which meta tag statement is MANDATORY for ensuring modern mobile responsive rendering?",
+        options: [
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "<meta name=\"mobile\" content=\"true\">",
+            "<meta http-equiv=\"refresh\" content=\"10\">",
+            "<meta name=\"screen\" content=\"responsive\">"
+        ],
+        correct: 0,
+        exp: "The viewport meta tag instructs mobile browsers to match viewport width to device screen width without auto-zooming out."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "What character encoding standard is universally specified in HTML5 to support all languages and symbols?",
+        options: ["ASCII", "UTF-8", "ISO-8859-1", "Windows-1252"],
+        correct: 1,
+        exp: "UTF-8 supports all characters including Hindi, Chinese, symbols, and emojis."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Where does text written inside the <title> tag appear?",
+        options: [
+            "Inside the main body paragraph",
+            "On the top tab bar of the web browser",
+            "Inside the footer section",
+            "In a popup window"
+        ],
+        correct: 1,
+        exp: "The <title> text appears in the browser tab header and search engine results."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Which meta tag automatically reloads the current web page every 30 seconds?",
+        options: [
+            "<meta name=\"reload\" content=\"30\">",
+            "<meta http-equiv=\"refresh\" content=\"30\">",
+            "<meta name=\"timer\" content=\"30s\">",
+            "<meta http-equiv=\"loop\" content=\"true\">"
+        ],
+        correct: 1,
+        exp: "http-equiv=\"refresh\" with a numeric content value sets an automatic browser refresh interval."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Which element is correct for linking an external CSS stylesheet named 'style.css'?",
+        options: [
+            "<link rel=\"stylesheet\" href=\"style.css\">",
+            "<style src=\"style.css\">",
+            "<script href=\"style.css\">",
+            "<css link=\"style.css\">"
+        ],
+        correct: 0,
+        exp: "The <link rel=\"stylesheet\" href=\"...\"> tag links external stylesheets within the document <head>."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Which attribute inside the <html> tag defines the primary language of the document?",
+        options: ["lang=\"en\"", "language=\"english\"", "meta=\"en\"", "code=\"en\""],
+        correct: 0,
+        exp: "The lang attribute (e.g. <html lang=\"en\">) specifies the document language."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Which element contains ALL visible web page content like text, headings, images, and tables?",
+        options: ["<head>", "<body>", "<meta>", "<html>"],
+        correct: 1,
+        exp: "The <body> section holds all visible layout content rendered in the browser window."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Which meta attribute provides a brief summary snippet of the web page for search engine results?",
+        options: ["name=\"summary\"", "name=\"description\"", "name=\"seo\"", "name=\"about\""],
+        correct: 1,
+        exp: "<meta name=\"description\" content=\"...\"> supplies search engines with page snippet descriptions."
+    },
+    {
+        topic: "4. HTML Page Architecture & Meta Tags (Continued)",
+        q: "Are <meta> tags self-closing (void) elements or do they require closing tags?",
+        options: [
+            "They require closing </meta> tags.",
+            "They are self-closing (void) elements with no closing tag.",
+            "They must end with </head>.",
+            "They require a matching <body> tag."
+        ],
+        correct: 1,
+        exp: "In HTML, <meta> is a void element and does not have a closing tag."
+    },
+
+    // Topic 5: Text Formatting, Headings & Structural Elements
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "How many levels of heading tags does HTML natively support?",
+        options: ["3 levels (h1 to h3)", "6 levels (h1 to h6)", "10 levels (h1 to h10)", "4 levels (h1 to h4)"],
+        correct: 1,
+        exp: "HTML provides 6 heading levels: <h1> (largest) down to <h6> (smallest)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "What is the recommended SEO standard regarding the usage of <h1> tags on a single page?",
+        options: [
+            "Use as many h1 tags as possible.",
+            "Always use exactly ONE h1 tag per page representing the primary page topic.",
+            "Never use h1 tags.",
+            "Skip h1 and start directly with h4."
+        ],
+        correct: 1,
+        exp: "SEO best practice dictates using exactly one main <h1> heading per page to mark the primary topic."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "What is the key functional semantic difference between the <b> tag and the <strong> tag?",
+        options: [
+            "<b> is visually bold only, while <strong> implies semantic importance/urgency.",
+            "<strong> makes text italic; <b> makes text underlined.",
+            "There is no difference; <b> is non-standard.",
+            "<b> can only be used inside tables."
+        ],
+        correct: 0,
+        exp: "<b> styles bold purely visually, whereas <strong> conveys strong importance semantically."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag should be used to denote stressed emphasis semantically rather than just visual italics (<i>)?",
+        options: ["<italic>", "<em>", "<mark>", "<bold>"],
+        correct: 1,
+        exp: "<em> denotes structural stress emphasis, whereas <i> provides italic styling without implicit importance."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which HTML tag renders text highlighted with a default yellow background marker effect?",
+        options: ["<highlight>", "<mark>", "<yellow>", "<color>"],
+        correct: 1,
+        exp: "The <mark> element represents highlighted text for reference or notation purposes."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag creates chemical formula subscripts (e.g., H₂O)?",
+        options: ["<sup>", "<sub>", "<down>", "<small>"],
+        correct: 1,
+        exp: "<sub> renders subscript text baseline-lowered (e.g., H<sub>2</sub>O)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag creates mathematical power superscripts (e.g., E = mc²)?",
+        options: ["<sup>", "<sub>", "<up>", "<power>"],
+        correct: 0,
+        exp: "<sup> renders superscript text baseline-raised (e.g., mc<sup>2</sup>)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which HTML tag preserves all exact spaces, tabs, and line breaks as typed directly in the source code?",
+        options: ["<code>", "<pre>", "<blockquote>", "<p>"],
+        correct: 1,
+        exp: "The <pre> tag displays preformatted text using a fixed-width font, retaining whitespace literally."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "What is the structural difference between a <div> and a <span> element?",
+        options: [
+            "<div> is a block-level container; <span> is an inline container.",
+            "<span> takes full screen width; <div> takes only text width.",
+            "<div> is used for images only; <span> for links.",
+            "There is no structural difference."
+        ],
+        correct: 0,
+        exp: "<div> is a block-level element taking full line width; <span> is an inline element wrapping text flows."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which self-closing tag inserts a single line break without starting a new paragraph block?",
+        options: ["<hr>", "<br>", "<break>", "<lb>"],
+        correct: 1,
+        exp: "<br> inserts a line break within text."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag draws a horizontal rule / dividing line across the page to break content topics?",
+        options: ["<line>", "<hr>", "<border>", "<break>"],
+        correct: 1,
+        exp: "<hr> inserts a thematic horizontal divider line."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag set represents strikethrough (deleted) text and newly inserted text respectively?",
+        options: ["<del> and <ins>", "<remove> and <add>", "<strike> and <new>", "<b> and <i>"],
+        correct: 0,
+        exp: "<del> represents deleted text (strikethrough) and <ins> represents inserted text (underlined)."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which tag displays inline code snippets using a monospace font?",
+        options: ["<script>", "<code>", "<pre>", "<tt>"],
+        correct: 1,
+        exp: "The <code> element styles computer code snippets in monospace typography."
+    },
+    {
+        topic: "5. Text Formatting, Headings & Structural Elements",
+        q: "Which element is used to enclose long, indented quotations cited from external sources?",
+        options: ["<q>", "<blockquote>", "<cite>", "<quote>"],
+        correct: 1,
+        exp: "<blockquote> formats long multi-line block quotations with default margin indentations."
+    },
+
+    // Topic 6: HTML Lists, Anchors & Links
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which tag pair creates an Unordered List with bullet points?",
+        options: ["<ol> and <li>", "<ul> and <li>", "<dl> and <dt>", "<list> and <item>"],
+        correct: 1,
+        exp: "<ul> creates an unordered (bulleted) list; items are placed within <li> tags."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which tag pair creates an Ordered (numbered/sequenced) List?",
+        options: ["<ol> and <li>", "<ul> and <li>", "<dl> and <dd>", "<order> and <item>"],
+        correct: 0,
+        exp: "<ol> defines an ordered list using numerical or alphabetical sequence markers."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "In an Ordered List <ol>, which attribute specifies the starting numeric counter value?",
+        options: ["type=\"1\"", "start=\"4\"", "begin=\"4\"", "value=\"4\""],
+        correct: 1,
+        exp: "The start attribute (e.g. <ol start=\"4\">) sets the initial numeric index."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which three tags comprise a Description/Glossary List structure in HTML?",
+        options: [
+            "<ul>, <ol>, <li>",
+            "<dl> (description list), <dt> (term), <dd> (definition description)",
+            "<table>, <tr>, <td>",
+            "<form>, <input>, <label>"
+        ],
+        correct: 1,
+        exp: "Description lists use <dl> container, <dt> for terms, and <dd> for descriptions."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which attribute inside an anchor tag <a> specifies the destination web address or link path?",
+        options: ["src", "href", "link", "target"],
+        correct: 1,
+        exp: "The href (hypertext reference) attribute dictates the target address URL."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "What value of the target attribute forces a hyperlinked webpage to open in a NEW browser tab or window?",
+        options: ["target=\"_self\"", "target=\"_blank\"", "target=\"_top\"", "target=\"_parent\""],
+        correct: 1,
+        exp: "target=\"_blank\" opens the linked document in a new tab or window."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "How do you create an email hyperlink that opens the user's default email program?",
+        options: [
+            "<a href=\"email:info@example.com\">",
+            "<a href=\"mailto:info@example.com\">",
+            "<a link=\"mail:info@example.com\">",
+            "<a href=\"sendmail?to=info@example.com\">"
+        ],
+        correct: 1,
+        exp: "The mailto: prefix scheme triggers the user's email client."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "Which attribute added to an anchor tag forces the browser to download the target file directly rather than displaying it?",
+        options: ["download", "save", "target=\"_download\"", "type=\"file\""],
+        correct: 0,
+        exp: "The boolean download attribute instructs browsers to download the target resource."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "How do you construct an anchor link that jumps to an element on the same page with id=\"contact-us\"?",
+        options: [
+            "<a href=\"#contact-us\">Jump to Contact</a>",
+            "<a href=\"goto:contact-us\">Jump to Contact</a>",
+            "<a href=\"id:contact-us\">Jump to Contact</a>",
+            "<a link=\"contact-us\">Jump to Contact</a>"
+        ],
+        correct: 0,
+        exp: "The hash symbol (#) followed by an element ID creates an internal document bookmark link."
+    },
+    {
+        topic: "6. HTML Lists, Anchors & Links",
+        q: "In an image tag <img src=\"photo.jpg\" alt=\"Logo\">, why is the alt attribute essential?",
+        options: [
+            "It speeds up image loading.",
+            "It provides descriptive alternative text if the image fails to load and supports accessibility.",
+            "It defines image border width.",
+            "It changes image brightness."
+        ],
+        correct: 1,
+        exp: "alt text provides descriptive fallback text for screen readers and missing images."
+    },
+
+    // Topic 7: HTML Tables & Structure
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which tag defines an individual data cell within an HTML table row?",
+        options: ["<th>", "<td>", "<tr>", "<table>"],
+        correct: 1,
+        exp: "<td> (table data) represents standard data cells in table rows."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "How do table header cells <th> visually differ from standard data cells <td> by default?",
+        options: [
+            "<th> text is bold and centered automatically.",
+            "<th> text is blue and underlined.",
+            "<th> text is italicized and right-aligned.",
+            "There is no visual difference."
+        ],
+        correct: 0,
+        exp: "Browsers display text inside <th> header cells as bold and horizontally centered."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which attribute is used to merge a single table cell horizontally across 3 columns?",
+        options: ["rowspan=\"3\"", "colspan=\"3\"", "merge=\"3\"", "grid-columns=\"3\""],
+        correct: 1,
+        exp: "colspan=\"3\" spans a cell across 3 horizontal columns."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which attribute is used to merge a single table cell vertically down across 2 rows?",
+        options: ["rowspan=\"2\"", "colspan=\"2\"", "rowmerge=\"2\"", "valign=\"2\""],
+        correct: 0,
+        exp: "rowspan=\"2\" extends a cell downward across 2 vertical rows."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which tag adds a title or caption header directly above an HTML table?",
+        options: ["<title>", "<caption>", "<head>", "<label>"],
+        correct: 1,
+        exp: "The <caption> tag specifies a title caption centered above the table."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "In HTML tables, what is the exact functional distinction between cellpadding and cellspacing?",
+        options: [
+            "cellpadding is space between cell border and content inside; cellspacing is space between individual cells.",
+            "cellpadding is space between cells; cellspacing is padding inside cells.",
+            "They perform identical functions.",
+            "cellpadding controls text color."
+        ],
+        correct: 0,
+        exp: "Cellpadding dictates internal distance between border and text; Cellspacing dictates distance between distinct cell borders."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which trio of semantic tags allows logical grouping of table headers, data body, and summary footers?",
+        options: [
+            "<thead>, <tbody>, <tfoot>",
+            "<header>, <content>, <footer>",
+            "<top>, <middle>, <bottom>",
+            "<th>, <td>, <tr>"
+        ],
+        correct: 0,
+        exp: "Tables utilize <thead>, <tbody>, and <tfoot> for semantic section division."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "What is the primary modern web rule regarding using HTML tables for page layouts?",
+        options: [
+            "Tables should be used for all web page layouts.",
+            "Tables must NEVER be used for page layout; tables are strictly for structured tabular data.",
+            "Tables are only for mobile layouts.",
+            "Tables can be used if CSS is disabled."
+        ],
+        correct: 1,
+        exp: "Tables are designed exclusively for tabular data. CSS layout tools (Flexbox, Grid) handle page presentation."
+    },
+    {
+        topic: "7. HTML Tables & Structure",
+        q: "Which element defines a single horizontal row inside an HTML table?",
+        options: ["<td>", "<th>", "<tr>", "<table>"],
+        correct: 2,
+        exp: "<tr> (table row) encapsulates horizontal cells."
+    },
+
+    // Topic 8: HTML Forms & Form Validation
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which attribute of a <form> tag defines the server URL script where submitted data is sent?",
+        options: ["method", "action", "target", "enctype"],
+        correct: 1,
+        exp: "The action attribute specifies the destination processing script URL."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "What is the critical security vulnerability of using method=\"GET\" when submitting passwords in forms?",
+        options: [
+            "GET encrypts passwords too heavily.",
+            "GET appends form field values directly into the browser URL bar in plain view.",
+            "GET deletes form data from server databases.",
+            "GET only works on desktop computers."
+        ],
+        correct: 1,
+        exp: "GET appends name/value parameters to the plaintext URL query string, exposing sensitive input in browser history."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which form element allows a user to choose EXACTLY ONE option from a mutually exclusive group?",
+        options: [
+            "<input type=\"checkbox\">",
+            "<input type=\"radio\"> with matching name attributes",
+            "<input type=\"text\">",
+            "<select multiple>"
+        ],
+        correct: 1,
+        exp: "Radio button groups with shared name attributes enforce mutually exclusive single choices."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which element allows users to select MULTIPLE non-exclusive options in a form?",
+        options: [
+            "<input type=\"checkbox\">",
+            "<input type=\"radio\">",
+            "<input type=\"password\">",
+            "<input type=\"submit\">"
+        ],
+        correct: 0,
+        exp: "Checkboxes permit selecting multiple independent options."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which HTML form element creates a multi-line text input field?",
+        options: [
+            "<input type=\"text\">",
+            "<textarea>",
+            "<input type=\"multiline\">",
+            "<textbox>"
+        ],
+        correct: 1,
+        exp: "The <textarea> element accepts multi-line text entries."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which attribute ensures a form input field CANNOT be submitted empty by triggering native browser validation?",
+        options: ["validate", "required", "mandatory", "important"],
+        correct: 1,
+        exp: "The boolean required attribute prevents form submission if the input field is left empty."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which attribute connects a <label> element to a specific <input> field for accessibility focus?",
+        options: ["label's for attribute matching input's id attribute", "label's name attribute matching input's name", "label's src matching input's href", "No connection is possible"],
+        correct: 0,
+        exp: "Setting <label for=\"email\"> binds focus to the element with id=\"email\"."
+    },
+    {
+        topic: "8. HTML Forms & Form Validation",
+        q: "Which native HTML5 attribute allows input validation using Regular Expressions (Regex)?",
+        options: ["regex", "pattern", "rule", "match"],
+        correct: 1,
+        exp: "The pattern attribute tests the input value against a provided Regular Expression."
+    },
+
+    // Topic 9: HTML5 Multimedia & Semantic Elements
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which HTML5 tag natively embeds audio playback without requiring legacy third-party plugins like Adobe Flash?",
+        options: ["<sound>", "<audio>", "<music>", "<media>"],
+        correct: 1,
+        exp: "HTML5 introduced native <audio> tags supported across modern browsers."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "In an HTML5 <video> tag, what does the poster attribute do?",
+        options: [
+            "Plays background music.",
+            "Displays a still thumbnail image before the video is played.",
+            "Adds subtitles to the video.",
+            "Enlarges video to fullscreen automatically."
+        ],
+        correct: 1,
+        exp: "The poster attribute specifies an image URL shown while video downloads or until play is clicked."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which element is used to embed external resources like YouTube videos or Google Maps directly inside an HTML page?",
+        options: ["<embed>", "<iframe>", "<frame>", "<object>"],
+        correct: 1,
+        exp: "An inline frame <iframe> embeds external documents or widgets inside the current document."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which HTML5 semantic element is intended for independent, self-contained reusable content like blog posts or news items?",
+        options: ["<section>", "<article>", "<aside>", "<main>"],
+        correct: 1,
+        exp: "<article> represents self-contained compositions independently distributable or reusable."
+    },
+    {
+        topic: "9. HTML5 Multimedia & Semantic Elements",
+        q: "Which HTML5 tag pair groups media elements (like an image or chart) with an associated descriptive caption?",
+        options: [
+            "<media> and <caption>",
+            "<figure> and <figcaption>",
+            "<image> and <text>",
+            "<div> and <p>"
+        ],
+        correct: 1,
+        exp: "<figure> wraps self-contained artwork, and <figcaption> provides its legend or caption."
+    }
+];
+
+// State variables
+let userAnswers = {};
+let showExplanations = false;
+const startIndex = 45; // Ensures the first question is numbered Q46
+
+// Render Quiz Content
+function renderQuiz() {
+    const container = document.getElementById('quizContent');
+    let currentTopic = "";
+    let html = "";
+
+    mcqData.forEach((item, index) => {
+        const qNum = startIndex + index + 1;
+        
+        // Add Section Header if topic changes
+        if (item.topic !== currentTopic) {
+            currentTopic = item.topic;
+            html += `<div class="section-title">${currentTopic}</div>`;
+        }
+
+        html += `
+            <div class="q-card" id="q-card-${index}">
+                <div class="q-header">
+                    <span class="q-num">Q${qNum}</span>
+                    <div class="q-text">${escapeHtml(item.q)}</div>
+                </div>
+                <div class="options-grid">
+                    ${item.options.map((opt, optIdx) => {
+                        const letter = String.fromCharCode(65 + optIdx);
+                        return `
+                            <button class="option-btn" id="opt-${index}-${optIdx}" onclick="selectAnswer(${index}, ${optIdx})">
+                                <span class="opt-label">${letter}.</span>
+                                <span>${escapeHtml(opt)}</span>
+                            </button>
+                        `;
+                    }).join('')}
+                </div>
+                <div class="explanation ${showExplanations ? 'show' : ''}" id="exp-${index}">
+                    <div class="explanation-title">✓ Correct Answer: Option ${String.fromCharCode(65 + item.correct)}</div>
+                    <div>${escapeHtml(item.exp)}</div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+function escapeHtml(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function selectAnswer(qIdx, optIdx) {
+    userAnswers[qIdx] = optIdx;
+    const correctIdx = mcqData[qIdx].correct;
+
+    // Clear previous option styles for this question
+    for (let i = 0; i < 4; i++) {
+        const btn = document.getElementById(`opt-${qIdx}-${i}`);
+        if (btn) {
+            btn.className = "option-btn";
+        }
+    }
+
+    const selectedBtn = document.getElementById(`opt-${qIdx}-${optIdx}`);
+    const expDiv = document.getElementById(`exp-${qIdx}`);
+
+    if (optIdx === correctIdx) {
+        selectedBtn.classList.add("correct-selected");
+    } else {
+        selectedBtn.classList.add("wrong-selected");
+        const correctBtn = document.getElementById(`opt-${qIdx}-${correctIdx}`);
+        if (correctBtn) correctBtn.classList.add("reveal-correct");
+    }
+
+    if (expDiv) expDiv.classList.add("show");
+
+    updateScore();
+}
+
+function updateScore() {
+    let score = 0;
+    Object.keys(userAnswers).forEach(qIdx => {
+        if (userAnswers[qIdx] === mcqData[qIdx].correct) {
+            score++;
+        }
+    });
+    document.getElementById('scoreBoard').innerText = `Score: ${score} / 55`;
+}
+
+function toggleAllExplanations() {
+    showExplanations = !showExplanations;
+    mcqData.forEach((item, index) => {
+        const expDiv = document.getElementById(`exp-${index}`);
+        if (expDiv) {
+            if (showExplanations) {
+                expDiv.classList.add('show');
+            } else {
+                if (userAnswers[index] === undefined) {
+                    expDiv.classList.remove('show');
+                }
+            }
+        }
+    });
+}
+
+function resetQuiz() {
+    userAnswers = {};
+    showExplanations = false;
+    document.getElementById('scoreBoard').innerText = "Score: 0 / 55";
+    renderQuiz();
+}
+
+// Initial initialization
+window.onload = renderQuiz;
+</script>
+</body>
+</html>
