@@ -1,6 +1,6 @@
 .moviesgenre{
     display:flex;
-    gap: 20px;
+    gap: 50px;
 }
 .catgory{
     text-align: center;
@@ -11,8 +11,16 @@
 }
 .popularmovies{
     display: flex;
-    gap: 30px;
+    gap: 22px;
+    
 }
 .movie > img{
     width:fit-content;
+}
+img:hover{
+    transform: scale(1.1);
+}
+img{
+    margin-bottom: 10px;
+    border-radius: 25px;
 }
