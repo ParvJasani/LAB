@@ -1,6 +1,7 @@
 .moviesgenre{
     display:flex;
-    gap: 50px;
+    gap: 10px;
+    background-color: #201e30df;
 }
 .catgory{
     text-align: center;
@@ -11,7 +12,7 @@
 }
 .popularmovies{
     display: flex;
-    gap: 22px;
+    gap: 4px;
     
 }
 .movie > img{
@@ -23,4 +24,21 @@ img:hover{
 img{
     margin-bottom: 10px;
     border-radius: 25px;
+    margin: 8px;
+}
+main{
+    color: #e9f3f4;
+    background-color: #060b0c;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.movie{
+    background-color: #201e30df;
+    /* background-color: #0f8185; */
+    padding: 9px;
+    border: radius 20px; 
+    width: 16.66%;
+}
+header{
+    background-color: #0f8185;
 }
