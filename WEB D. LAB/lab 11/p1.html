@@ -56,6 +56,37 @@
             gap: 40px;
             justify-content: space-between;
         }
+        .lower-lo{
+            display: flex;
+        }
+        .service{
+            display: flex;
+        }
+        .card{
+            border: 5px;
+            border-radius: 10px;
+            margin-left: 10px;
+            background-color:aquamarine;
+            padding: 30px;
+            height: 130px;
+            width: 100px;
+        }
+        #card{
+            background-color: crimson;
+            color: white;
+        }
+        .exp{
+            font-size: 120px;
+
+        }
+        .right{
+            /* margin-left: 700px; */
+            width: 70%;
+        }
+        .left{
+            width: 30%;
+            padding-left: 40px;
+        }
     </style>
 </head>
 <body>
@@ -91,10 +122,28 @@
         <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwqSqBnRd_aH1ab9Qb5xz_QXIzM4zoUIYTi_VWVH47tA&s"></div>
         <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB77zRnHXvsOcta97C9SDDnFkqbfRmk0xGDRGDX6WfPw&s=10"></div>
     </div>
-    <div class="part">
-        <div class="lside"></div>
-        <div class="rside"></div>
-    </div>
-    </div>
+    <div class="lower-lo">
+        <div class="left">
+           <h1 class="exp">22</h1><br>
+           <h6>Years of Experience<br>Working</h6>
+        </div>
+        <div class="right">
+           <h6> I am Designer & Developer with a Passion For<br> Web Design  </h6>
+           <div class="service">
+               <div class="card" id="card">
+                   <h4>Creative Design</h4><br>
+                   <h5>Explore More</h5>
+               </div>
+               <div class="card">
+                   <h4>Creative Design</h4><br>
+                   <h5>Explore More</h5>
+               </div>
+               <div class="card">
+                   <h4>Creative Design</h4><br>
+                   <h5>Explore More</h5>
+               </div>
+           </div>
+        </div>
+   </div>
 </body>
 </html>

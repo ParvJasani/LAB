@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p1</title>
+    <style>
+        .countainer{
+            height: 500px;
+            width: 800px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            position: absolute;
+            background-color: red;
+            animation-duration: 5s;
+            animation-name: box;
+            animation-delay: 2s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-out;
+        }
+        @keyframes box {
+        0%
+        {
+            left: 0;
+            top: 0;
+        }
+        25%{
+            left: 600px;
+            top: 0;
+        }
+        50%{
+            left: 600px;
+            top: 300px;
+        }
+        75%{
+            left: 0px;
+            top: 300px;
+        }
+        100%{
+            left:0px;
+            top: 0;
+        }
+        }
+        .box2{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            position: absolute;
+            background-color: blue;
+            animation-duration: 5s;
+            animation-name: box;
+            animation-delay: 2s;
+            animation-iteration-count:infinite;
+            animation-timing-function:ease-out;
+            animation-direction: reverse;
+        }
+    </style>
+</head>
+<body>
+    <div class="countainer">
+        <div class="box"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
