@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        .container{
+            background-color: rgba(40, 45, 49, 0.936);
+            height: 900px;
+        }
+        .header{
+            background-color: black;
+            display: flex;
+            padding: 20px;
+        }
+        .logo{
+            display: flex;
+        }
+        .logo img{
+            height: 60px;
+            width: 80px;
+        }
+        .logo-detail{
+            align-content: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+        }
+        .nav button{
+            border: 1px solid;
+            border-radius: 5px;
+            background-color: aqua;
+            margin-left: 5px;
+        }
+        .nav a img{
+            height: 15px;
+            width: 15px;
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+        .nav a{
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        .nav{
+            margin-left: 700px;
+            align-content: center;
+        }
+        .mid img{
+            margin: 5% 5% 0 5%;
+            width: 90%;
+            height: 150px;
+            margin-right: 50px;
+        }
+        .lower{
+            display: flex;
+            margin: 5%;
+            justify-content: space-between;
+        }
+        .img img{
+            height: 220px;
+            width: 220px;
+            border-radius: 10px;
+        }
+        .detail{
+            width: 200px;
+            background-color: white;
+            padding: 10px;
+            position: absolute;
+            bottom: 40px;
+            border-radius: 10px;
+        }
+        .detail button{
+         align-content: center;
+         border-radius: 10px;
+         background-color: aqua;
+         margin: 10px 0 10px 50px;
+        }
+        .detail h3{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+            <div class="logo-detail"><i class="fa-solid fa-guitar"></i>SoundAmp</div>
+        </div>
+        <div class="nav">
+            <a href="">HTML Template &#9660;</a>
+            <a href="">More Html Template &#9660;</a>
+            <button>Download Now</button>
+            <a href=""><i class="fa-brands fa-google"></i></a>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+        <div class="mid">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLMRJa-9aSPry6VMKDsH5oOtzy2cRHxJxXz3lkoL9qtmDoTw96V7Jgm6E&s=10" alt="">
+        </div>
+        <div class="lower">
+            <div class="card">
+                <div class="img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsubI1xnS2EsbFC7IKOtHXy3o2yp5zNGHX8-mLk-0nVw&s" alt="">
+                </div>
+                <div class="detail">
+                    10/05/2018<br>
+                       <h3> Night Lesor Show</h3><br>
+                            hip-hop mb Dance<br>
+                                we are happy to announce this special laser show<br>
+                                <button>See More</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsubI1xnS2EsbFC7IKOtHXy3o2yp5zNGHX8-mLk-0nVw&s" alt="">
+                </div>
+                <div class="detail">
+                    10/05/2018<br>
+                        <h3>Night Lesor Show</h3><br>
+                            hip-hop mb Dance<br>
+                                we are happy to announce this special laser show<br>
+                                <button>See More</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsubI1xnS2EsbFC7IKOtHXy3o2yp5zNGHX8-mLk-0nVw&s" alt="">
+                </div>
+                <div class="detail">
+                    10/05/2018<br>
+                       <h3> Night Lesor Show </h3><br>
+                            hip-hop mb Dance<br>
+                                we are happy to announce this special laser show<br>
+                                <button>See More</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="data:image/png;base64,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" alt="">
+                </div>
+                <div class="detail">
+                    10/05/2018<br>
+                       <h3> Night Lesor Show</h3><br>
+                            hip-hop mb Dance<br>
+                                we are happy to announce this special laser show<br>
+                                <button>See More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

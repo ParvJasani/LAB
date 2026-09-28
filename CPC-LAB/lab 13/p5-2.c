@@ -3,7 +3,7 @@ int main(){
     int n,i,j=0,count=0;
     printf("tell me the size of erray");
     scanf("%d",&n);
-    int a[n],b[100];
+    int a[n],b[n];
     for(i=0;i<n;i++){
         scanf("%d",&a[i]);
     }
