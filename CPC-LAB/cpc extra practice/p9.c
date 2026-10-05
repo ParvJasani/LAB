@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main(){
-    int n,i,j,k;
+    int n,i,j,k,second,largest;
     printf("give the size of array");
     scanf("%d",&n);
     int arr[n];
@@ -19,7 +19,15 @@ int main(){
             
         }
     }
+    largest=arr[0];
     for(i=0;i<n;i++){
-        printf("%d",arr[i]);
+        if(largest<=arr[i]){
+            second=largest;
+            largest=arr[i];
+        }
+        
     }
+    printf("second largest %d\n",second);
+    printf("largest %d",largest);
+
 }
