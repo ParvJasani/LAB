@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "ARTICAL.C": "cpp"
+        "ARTICAL.C": "cpp",
+        "P11.C": "cpp"
     }
 }
