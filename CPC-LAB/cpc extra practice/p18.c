@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main(){
-    int n,i,count=1,max=0;
+    int n,i,count=1,max=0,flag=1;
     printf("tell the size of array");
     scanf("%d",&n);
 
@@ -8,19 +8,23 @@ int main(){
     for(i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
-    for(i=0;i<n-1;i++){
-        if(arr[i]<arr[i+1]){
+    for(i=1;i<n;i++){
+        flag=1;
+        if(arr[i]>arr[i-1]){
             count++;
         }
         else{
-            if(max<count){
-                max=count;
+            flag=0;
                 count=1;
-            }
-            else{
-                count=1;
-            }
         }
+        if(max<count){
+                max=count;
+            }
     }
+    if(flag){
+        printf("=>%d",count);
+    }
+    else{
     printf("=>%d",max);
+    }
 }
