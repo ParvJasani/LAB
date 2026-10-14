@@ -1,11 +1,17 @@
 #include<stdio.h>
-#include<math.h>
 int main()
 {
-    float h; float b;
-    printf("Give a hight:");
-    scanf("%f",&h);
-    printf("Give a base:");
-    scanf("%f",&b);
-    printf("area=%f",(h*b)/2);
+    int a;int b;int c;
+    printf("Give a number A:");
+    scanf("%d",&a);
+    
+    printf("Give a number B:");
+    scanf("%d",&b);
+
+    printf("Give a number C:");
+    scanf("%d",&c);
+
+
+    printf("avg = %d",(a+b+c)/3);
+
 }
