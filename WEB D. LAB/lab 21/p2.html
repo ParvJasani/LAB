@@ -1,35 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Lab 20-B</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            
-          <a class="navbar-brand" href="#">iBuild</a>
-    
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
+      <div class="container-fluid">
+        <nav class="navbar bg-1 fg-2 bg-black">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img
+                src="data:image/png;base64,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"
+                alt="Logo"
+                width="150"
+                height="150"
+                class="d-inline-block align-text-top"
+              />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item ps-5 pe-5"></li>
+                <li class="nav-item ps-5 pe-5"></li>
+                <li class="nav-item ps-5 pe-5"></li>
+                <li class="nav-item ps-5"></li>
+                <li class="nav-item ps-5 pe-5">
+                  <a
+                    class="nav-link active text-white"
+                    aria-current="page"
+                    href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item ps-5 pe-5">
+                  <a class="nav-link text-white" href="#">aboutt us</a>
+                </li>
+                <li class="nav-item ps-5 pe-5">
+                  <a class="nav-link text-white" href="#">Prod</a>
+                </li>
+                <li class="nav-item ps-5 pe-5">
+                  <a class="nav-link text-white" href="#">servic</a>
+                </li>
+                <li class="nav-item ps-5 pe-5">
+                  <a class="nav-link text-white" href="#">contact</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        </nav>
+      </div>
+    </nav>
+    <div class="container-fluid text-bg-primary">
+      <div class="h5 text-center pt-4 pb-4">our capability</div>
+      <div class="row">
+        <div class="col"><div class="card mb-5" style="width: 18rem;">
+          <i class="bi bi-people-fill bg-primary text-center" style="font-size: 70px;"></i>
+          <div class="card-body text-bg-primary border-primary">
+            <h5 class="card-title text-center">PROJECT<br>MANAGMENT</h5>
+            <p class="card-text p-2"> on the card title and make up the bulk of the cards content.</p>
+            <a href="#" class="btn btn-primary bg-white text-dark border-dark mx-5">more</a>
+          </div>
+        </div></div>
+        <div class="col"><div class="card" style="width: 18rem;">
+          <i class="bi bi-map-fill bg-primary text-center" style="font-size: 70px;"></i>
+          <div class="card-body text-bg-primary ">
+            <h5 class="card-title text-center">INOVATION<br>AND DIVERCITY</h5>
+            <p class="card-text p-2">Some quick example the card title ae bulk of the cards content.</p>
+            <a href="#" class="btn btn-primary bg-white text-dark border-dark mx-5">more</a>
+          </div>
+        </div></div>
+        <div class="col"><div class="card" style="width: 18rem;">
+          <i class="bi bi-lightbulb-fill bg-primary text-center" style="font-size: 70px;"></i>
+          <div class="card-body text-bg-primary">
+            <h5 class="card-title text-center">PROFESSIONAL<br>APPROCH</h5>
+            <p class="card-text p-2">Some  on the card title and make up the bulk of the card’s content.</p>
+            <a href="#" class="btn btn-primary bg-white text-dark border-dark mx-5">more</a>
+          </div>
+        </div></div>
+        <div class="col"><div class="card" style="width: 18rem;">
+          <i class="bi bi-alarm bg-primary text-center" style="font-size: 70px;"></i>
+          <div class="card-body text-bg-primary">
+            <h5 class="card-title text-center">THE SUSTAINABLE <br>FUTURE</h5>
+            <p class="card-text p-2">  title and make up the bulk of the cards content.</p>
+            <a href="#" class="btn btn-primary bg-white text-dark border-dark mx-5">more</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="d-flex">
+        <p class=""><i class="bi bi-arrow-left-circle-fill fs-1"></i>
+           <hr class="w-50">
+        <p class="fs-3">Recent&nbsp;Project</p>
+        <hr class="w-50 "><i class="bi bi-arrow-right-circle-fill fs-1"></i></p>
+     </div>
+
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
