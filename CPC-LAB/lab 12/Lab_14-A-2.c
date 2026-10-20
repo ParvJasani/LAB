@@ -9,13 +9,13 @@ int main(){
         scanf("%d",&a[i]);
     }
     for(i=0;i<n;i++){
-        if(i%2==0){
+        if(a[i]>=0){
             countpv++;
         }
         else{
             countnv++;
         }
     }
-    printf("even numbers=%d",countnv);
-    printf("odd numbers=%d",countpv);
+    printf("negative numbers=%d\n",countnv);
+    printf("positive numbers=%d",countpv);
 }

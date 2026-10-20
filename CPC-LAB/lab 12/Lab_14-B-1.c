@@ -17,4 +17,4 @@ int main(){
         }
     }
     printf("ans=%d",count);
-}
+} 
