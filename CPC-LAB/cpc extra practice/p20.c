@@ -25,4 +25,5 @@ int main(){
                 max=count;
             }
     printf("max repeatation %d",max);
+
 }
