@@ -16,7 +16,14 @@ int main(){
         if(ch==' '){
             spaces++;
         }
+        if(ch=='/t'){
+            tabs++;
+        }
+        if(ch=='/n'){
+            lines++;
+        }
     }
-    
+    printf("charactors = %d\n",chars);
+    printf("spaces = %d\n",spaces);
     return 0;
 }
