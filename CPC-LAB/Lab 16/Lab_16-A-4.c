@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main(){
-    int n,m,i1,i2,j1,j2,i,j;
+    int n,m,i1,j1,i,j;
     printf("tell me how much rows do have to need");
     scanf("%d",&m);
     printf("tell me how much cols do have to need");
