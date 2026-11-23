@@ -27,3 +27,28 @@ int main(){
     printf("spaces = %d\n",spaces);
     return 0;
 }
+//     
+
+//     
+
+//     fp = fopen("student.txt", "r");
+
+//     if (fp == NULL) {
+//         printf("File cannot be opened!");
+//         return 1;
+//     }
+
+//     printf("\nStudents having more than 5 backlogs:\n");
+
+//     while (fscanf(fp, "%d %49s %d",
+//                   &s.rollno, s.name, &s.backlogs) == 3) {
+
+//         if (s.backlogs > 5) {
+//             printf("Roll Number: %d\n", s.rollno);
+//         }
+//     }
+
+//     fclose(fp);
+
+//     return 0;
+// }
